@@ -1,0 +1,23 @@
+name: Service CI/CD
+
+on:
+  push:
+    branches:
+      - dev
+      - master
+  workflow_dispatch:
+
+jobs:
+  service:
+    uses: PipelineIQproject/pipeline_main/.github/workflows/reusable-node-service-ci.yml@dev
+    with:
+      service_name: webhook-service
+      image_name: final_capstone-webhook-service
+      dockerfile: services/webhook-service/Dockerfile
+      node_project_dir: services/webhook-service
+      chart_path: webhook-service
+      container_port: "8087"
+      smoke_mode: http
+      sonar_organization: pipelineiqproject
+      sonar_project_key: pipelineiq-webhook-service
+    secrets: inherit
