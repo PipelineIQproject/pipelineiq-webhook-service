@@ -4,7 +4,7 @@ Independent repository for the PipelineIQ webhook API.
 
 ## Build
 
-```bash
+``` 
 docker build -t <acr-login-server>/final_capstone-webhook-service:local -f services/webhook-service/Dockerfile .
 ``` 
  
